@@ -35,9 +35,21 @@ def selection_sort(data):
         index += 1
     return data_1
 
+
+def bubble_sort(data):
+    data = data["series_1"]
+    for number in data:
+        index = 0
+        while index < len(data) - 1:
+            if data[index] > data[index + 1]:
+                data[index], data[index + 1] = data[index + 1], data[index]
+            index += 1
+    return data
+
+
 def main():
     data = read_data("numbers.csv")
-    print(selection_sort(data))
+    print(bubble_sort(data))
 
 
 if __name__ == '__main__':
