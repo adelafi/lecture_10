@@ -22,8 +22,22 @@ def read_data(file_name):
     return data
 
 
+def selection_sort(data):
+    index = 0
+    data_1 = data["series_1"]
+    while index < len(data_1):
+        smallest = min(data_1[index:])
+        for i, number in enumerate(data_1[index:]):
+            if number == smallest:
+                idx = i
+                data_1[index], data_1[idx+index] = data_1[idx+index], data_1[index]
+                break
+        index += 1
+    return data_1
+
 def main():
-    print(read_data("numbers.csv"))
+    data = read_data("numbers.csv")
+    print(selection_sort(data))
 
 
 if __name__ == '__main__':
